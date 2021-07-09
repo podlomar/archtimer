@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+html {
+  font-family: 'Varela Round', sans-serif;
+}
+
+body {
+  background-color: #7D8297;
+  color: white;
+}
+
+.container {
+  width: 20rem;
+  margin: 8rem auto;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.controls {
+  text-align: center;
+}
+
+.btn {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #7D8297;
+  background-size: contain;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px #444;
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: 0 0 2px #444;
+}
+
+.btn:disabled {
+  filter: brightness(0.85);
+  cursor: initial;
+}
+
+.btn:hover:enabled {
+  background-color: #6D7288;
+}
+
+.btn.btn--primary {
+  background-color: #DA5C43;
+  transform: scale(1.3);
+}
+
+.btn.btn--primary:hover:enabled {
+  background-color: #D74E33;
+}
+
+.btn.btn--primary:disabled {
+  filter: brightness(0.75);
+  cursor: initial;
+}
+
+.btn--pause {
+  background-image: url(img/pause.svg);
+}
+
+.btn--play {
+  background-image: url(img/play.svg);
+}
+
+.btn--plus {
+  background-image: url(img/plus.svg);
+}
+
+.btn--minus {
+  background-image: url(img/minus.svg);
+}
+
+.btn--reset {
+  background-image: url(img/reset.svg);
+}
