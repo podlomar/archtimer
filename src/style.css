@@ -65,21 +65,21 @@ body {
 }
 
 .btn--pause {
-  background-image: url(img/pause.svg);
+  background-image: url(./img/pause.svg);
 }
 
 .btn--play {
-  background-image: url(img/play.svg);
+  background-image: url(./img/play.svg);
 }
 
 .btn--plus {
-  background-image: url(img/plus.svg);
+  background-image: url(./img/plus.svg);
 }
 
 .btn--minus {
-  background-image: url(img/minus.svg);
+  background-image: url(./img/minus.svg);
 }
 
 .btn--reset {
-  background-image: url(img/reset.svg);
+  background-image: url(./img/reset.svg);
 }
