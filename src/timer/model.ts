@@ -1,17 +1,19 @@
+export type UpdateFunc = (timer: Timer) => void;
+
 export class Timer {
   private _seconds: number;
   private _minutes: number;
   
-  private updateFunc: (timer: Timer) => void;
+  private updateFunc: UpdateFunc;
   private intervalHandle: number | undefined = undefined;
   
   constructor(
     minutes: number, 
     seconds: number, 
-    updateFunc: (timer: Timer) => void,
+    updateFunc: UpdateFunc,
   ) {
-    this._seconds = 0;
-    this._minutes = 1;
+    this._minutes = minutes;
+    this._seconds = seconds;
     this.updateFunc = updateFunc;
   }
 

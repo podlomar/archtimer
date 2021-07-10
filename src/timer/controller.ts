@@ -1,6 +1,7 @@
-import { Timer } from "./model";
+import { Timer, UpdateFunc } from "./model";
+import { updateView } from "./view";
 
-export const initController = (timer: Timer) => {
+export const initController = (timer: Timer, updateFunc: UpdateFunc) => {
   (document.querySelector('#btn-play') as Element).addEventListener(
     'click', 
     () => {
@@ -24,4 +25,6 @@ export const initController = (timer: Timer) => {
   (document.querySelector('#btn-minus') as Element).addEventListener(
     'click', () => { timer.decrement() }
   );
+
+  updateFunc(timer);
 };

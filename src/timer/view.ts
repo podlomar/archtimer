@@ -1,5 +1,4 @@
 import { Timer } from './model';
-import { initController } from './controller';
 
 const formatDigits = (num: number): string => String(num).padStart(2, '0');
 
@@ -14,7 +13,6 @@ export const updateView = (timer: Timer): void => {
   minutesElm.textContent = formatDigits(timer.minutes);
   secondsElm.textContent = formatDigits(timer.seconds);
 
-  console.log('timer', timer, timer.isRunning());
   if (timer.isRunning()) {
     playBtn.classList.remove('btn--play');
     playBtn.classList.add('btn--pause');
