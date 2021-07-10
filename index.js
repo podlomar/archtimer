@@ -1,13 +1,13 @@
 const minutesElm = document.querySelector('#minutes');
 const secondsElm = document.querySelector('#seconds');
-const playBtn = document.querySelector('#btn-play');
+const startStopBtn = document.querySelector('#btn-start-stop');
 const resetBtn = document.querySelector('#btn-reset');
 const minusBtn = document.querySelector('#btn-minus');
 const plusBtn = document.querySelector('#btn-plus');
 
 let intervalId = null;
 
-const formatDigits = (num) => String(num).padStart(2, 0);
+const formatDigits = (num) => String(num).padStart(2, '0');
 
 const increment = () => {
   let minutes = Number(minutesElm.textContent);
@@ -28,7 +28,7 @@ const increment = () => {
   minutesElm.textContent = formatDigits(minutes);
   secondsElm.textContent = formatDigits(seconds);
   resetBtn.disabled = isZero();
-  playBtn.disabled = isZero();
+  startStopBtn.disabled = isZero();
 };
 
 const decrement = () => {
@@ -51,11 +51,11 @@ const decrement = () => {
   secondsElm.textContent = formatDigits(seconds);
 
   resetBtn.disabled = intervalId !== null || isZero();
-  playBtn.disabled = isZero();
+  startStopBtn.disabled = isZero();
   
   if (isZero()) {
-    playBtn.classList.remove('btn--pause');
-    playBtn.classList.add('btn--play');
+    startStopBtn.classList.remove('icon-stop');
+    startStopBtn.classList.add('icon-start');
     minusBtn.disabled = false;
     plusBtn.disabled = false;
   }
@@ -64,7 +64,7 @@ const decrement = () => {
 const reset = () => {
   secondsElm.textContent = minutesElm.textContent = '00';
   resetBtn.disabled = true;
-  playBtn.disabled = true;
+  startStopBtn.disabled = true;
 };
 
 const isZero = () => (
@@ -74,8 +74,8 @@ const isZero = () => (
 
 const startOrStop = () => {
   if (intervalId === null) {
-    playBtn.classList.remove('btn--play');
-    playBtn.classList.add('btn--pause');
+    startStopBtn.classList.remove('icon-start');
+    startStopBtn.classList.add('icon-stop');
 
     intervalId = setInterval(() => {
       if (isZero()) {
@@ -92,8 +92,8 @@ const startOrStop = () => {
   } else {
     clearInterval(intervalId);
     intervalId = null;
-    playBtn.classList.remove('btn--pause');
-    playBtn.classList.add('btn--play');
+    startStopBtn.classList.remove('icon-stop');
+    startStopBtn.classList.add('icon-start');
 
     resetBtn.disabled = isZero();
     plusBtn.disabled = false;
@@ -104,4 +104,4 @@ const startOrStop = () => {
 plusBtn.addEventListener('click', increment);
 minusBtn.addEventListener('click', decrement);
 resetBtn.addEventListener('click', reset);
-playBtn.addEventListener('click', startOrStop);
+startStopBtn.addEventListener('click', startOrStop);
