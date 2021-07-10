@@ -3,7 +3,7 @@ const formatDigits = (num) => String(num).padStart(2, 0);
 const updateView = () => {
   const minutesElm = document.querySelector('#minutes');
   const secondsElm = document.querySelector('#seconds');
-  const playBtn = document.querySelector('#btn-play');
+  const startStopBtn = document.querySelector('#btn-start-stop');
   const resetBtn = document.querySelector('#btn-reset');
   const minusBtn = document.querySelector('#btn-minus');
   const plusBtn = document.querySelector('#btn-plus');
@@ -12,14 +12,14 @@ const updateView = () => {
   secondsElm.textContent = formatDigits(seconds);
 
   if (isRunning()) {
-    playBtn.classList.remove('btn--play');
-    playBtn.classList.add('btn--pause');
+    startStopBtn.classList.remove('icon-start');
+    startStopBtn.classList.add('icon-stop');
   } else {
-    playBtn.classList.remove('btn--pause');
-    playBtn.classList.add('btn--play');
+    startStopBtn.classList.remove('icon-stop');
+    startStopBtn.classList.add('icon-start');
   }
   
-  playBtn.disabled = isZero();
+  startStopBtn.disabled = isZero();
   resetBtn.disabled = isRunning() || isZero();
   plusBtn.disabled = minusBtn.disabled = isRunning();
 };

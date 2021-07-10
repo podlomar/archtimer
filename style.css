@@ -64,22 +64,22 @@ body {
   cursor: initial;
 }
 
-.btn--pause {
-  background-image: url(img/pause.svg);
+.icon-stop {
+  background-image: url(img/stop.svg);
 }
 
-.btn--play {
-  background-image: url(img/play.svg);
+.icon-start {
+  background-image: url(img/start.svg);
 }
 
-.btn--plus {
+.icon-plus {
   background-image: url(img/plus.svg);
 }
 
-.btn--minus {
+.icon-minus {
   background-image: url(img/minus.svg);
 }
 
-.btn--reset {
+.icon-reset {
   background-image: url(img/reset.svg);
 }

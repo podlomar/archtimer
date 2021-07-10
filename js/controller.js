@@ -1,4 +1,4 @@
-document.querySelector('#btn-play').addEventListener('click', () => {
+document.querySelector('#btn-start-stop').addEventListener('click', () => {
   if (isRunning()) {
     stop();
   } else {
