@@ -71,6 +71,7 @@ export class Timer {
   stop(): void {
     window.clearInterval(this.intervalHandle);
     this.intervalHandle = undefined;
+    this.updateFunc(this);
   }
   
   run(): void {
@@ -84,5 +85,7 @@ export class Timer {
         this.stop();
       }
     }, 1000);
+
+    this.updateFunc(this);
   };
 };
