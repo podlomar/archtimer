@@ -1,8 +1,7 @@
 import { Timer, UpdateFunc } from "./model";
-import { updateView } from "./view";
 
 export const initController = (timer: Timer, updateFunc: UpdateFunc) => {
-  (document.querySelector('#btn-play') as Element).addEventListener(
+  (document.querySelector('#btn-start-stop') as Element).addEventListener(
     'click', 
     () => {
       if (timer.isRunning()) {

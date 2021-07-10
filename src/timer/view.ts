@@ -5,7 +5,7 @@ const formatDigits = (num: number): string => String(num).padStart(2, '0');
 export const updateView = (timer: Timer): void => {
   const minutesElm = document.querySelector('#minutes') as Element;
   const secondsElm = document.querySelector('#seconds') as Element;
-  const playBtn = document.querySelector('#btn-play') as HTMLButtonElement;
+  const startStopBtn = document.querySelector('#btn-start-stop') as HTMLButtonElement;
   const resetBtn = document.querySelector('#btn-reset') as HTMLButtonElement;
   const minusBtn = document.querySelector('#btn-minus') as HTMLButtonElement;
   const plusBtn = document.querySelector('#btn-plus') as HTMLButtonElement;
@@ -14,14 +14,14 @@ export const updateView = (timer: Timer): void => {
   secondsElm.textContent = formatDigits(timer.seconds);
 
   if (timer.isRunning()) {
-    playBtn.classList.remove('btn--play');
-    playBtn.classList.add('btn--pause');
+    startStopBtn.classList.remove('icon-start');
+    startStopBtn.classList.add('icon-stop');
   } else {
-    playBtn.classList.remove('btn--pause');
-    playBtn.classList.add('btn--play');
+    startStopBtn.classList.remove('icon-stop');
+    startStopBtn.classList.add('icon-start');
   }
   
-  playBtn.disabled = timer.isZero();
+  startStopBtn.disabled = timer.isZero();
   resetBtn.disabled = timer.isRunning() || timer.isZero();
   plusBtn.disabled = minusBtn.disabled = timer.isRunning();
 };
